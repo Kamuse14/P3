@@ -1,323 +1,71 @@
-/* //////////////////////////1/ POLICE et COULEURS //////////////////////*/ 
+/* ////////////// 1- BASE_POLICES /////////////////*/
 @font-face {
-	font-family: "abel";
-	src: url("polices/abel/abel-regular-webfont.eot");
-	src: url('polices/abel/abel-regular-webfont.woff2') format('woff2'),
-         url('polices/abel/abel-regular-webfont.woff') format('woff'),
-         url('polices/abel/abel-regular-webfont.ttf') format('truetype'),
-         url('polices/abel/abel-regular-webfont.svg#abelregular') format('svg');
+    font-family: 'vtc_letterer_proregular';
+    src: url('police/VTC_letterer_pro-webfont.eot');
+    src: url('police/VTC_letterer_pro-webfont.eot?#iefix') format('embedded-opentype'),
+         url('police/VTC_letterer_pro-webfont.woff2') format('woff2'),
+         url('police/VTC_letterer_pro-webfont.woff') format('woff'),
+         url('police/VTC_letterer_pro-webfont.ttf') format('truetype'),
+         url('police/VTC_letterer_pro-webfont.svg#vtc_letterer_proregular') format('svg');
     font-weight: normal;
     font-style: normal;
+
 }
+
 
 body
 {
-	font-family: "abel", Impact, sans-serif;
-}
-
-:root /* Définition des couleurs principales */
-{
-	--main-bg-color: #FFC107;
-	--main-color: #424242;
-}
-
-/* ////////////2/ ANIMATIONS ///////// */
-
-/* La photo s'aggrandit légèrement */
-aside header {
-	transition: transform 450ms ease-in;
-}
-
-aside header :hover {
-	transform: scale(1.3);
-}
-
-
-/* Karine Grassi apparait sur la droite */
-main header {
-  animation-duration: 4s;
-  animation-name: slidein;
-  animation-timing-function: ease-in-out;
-}
-
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%; 
-  }
-
-  to {
-    margin-left: 5%;
-    width: 100%;
-  }
-
-  75% {
-  font-size: 155%;
-  margin-left: 25%;
-  width: 150%;
-	}
-}
-
-/* ////////////3/ STYLES Généraux des paragraphes, titres et listes ///////// */
-
-p, .grille li /* paragraphes "à propos" et cv justifiés*/
-{
-	text-align: justify;
-}
-
-aside p
-{
-	margin-left: 2rem;
-	margin-right: 2rem;
-}
-
-#contact a, p, .grille, #recommandations ul
-{
-	color: var(--main-color);
-}
-
-/* ///////////4/ ORGANISATION  et STYLES des différents blocs /////////// */
-
-body
-{
+	font-family: arial, sans-serif;
 	width: 75%;
 	margin: auto;
 }
 
-#conteneur
-{
-	display: flex;
+
+/* ////////////// 2- UTILS_VARIABLES /////////////////*/
+
+:root /* Définition des couleurs */
+{	/*header et footer*/
+	--bg-txt-color: #579C87;
+	--txt-color: #FDCB46;
+	/*menu1*/
+	--bg-menu1: #FCDFDB;
+	--txt-menu1:#3D1319;
+	/*menu2*/
+	--bg-menu2: #FFF5FE;
+	--txt-1-menu2:#C77412;
+	--txt-2-menu2: #A56799;
+	--txt-3-menu2: #6E4CCC;
+	/*menu3*/
+	--bg-menu3: #EDEFEF;
+	--txt-menu3: #0887FB;
+	--bar-darken-menu3: #0228DD;
+	--bar-normal-menu3: #0670F3;
+	--bar-lighten-menu3: #229DF9;
+	/*menu4*/
+	--bg-menu4: #FDFFFD;
+	--txt-menu4: #72BF56;
+	--bar-darken-menu4: #3D923A;
+	--bar-lighten-menu4: #BFFF7E;
 }
 
-/* //////////////////////  4-1/ LE BLOC ASIDE /////////////////////// */
 
-aside
-{
-	background-color: var(--main-bg-color);
-	min-width: 270px;
-	max-width: 280px;
-}
-
-aside header, footer /*centrage de ces blocs */
-{
+/* ////////////// 3-1 LAYOUT_Header /////////////////*/
+header {
+	color: #FDCB46;
+	background-color: #579C87;
 	text-align: center;
 }
-
-aside header img /*bordure et centrage de la photo*/
-{
-	border: 4px #FFA000 solid;
-	border-radius: 50%;
-	margin: 2rem 2rem 1rem 2rem;
-}
-
-h3 /* contact, à propos de moi et loisirs */
-{
-	text-transform: uppercase;
-	text-align: center;
-	background-color: var(--main-color);
-	color: var(--main-bg-color);
-	padding: 0.3rem;
-}
-
-address
-{
+/* ////////////// 3-2 LAYOUT_Footer /////////////////*/
+footer {
 	display: flex;
-	flex-wrap: wrap;
-	font-style: normal;
+	color: #FDCB46;
+	background-color: #579C87;
 }
 
-.element
-{
-	min-width: 10rem;
-	margin: -0.5rem 0rem -0.5rem 0rem;
-}
+/* ////////////// 4 COMPONENTS /////////////////*/
 
-.element a
-{
-	text-decoration: none;
-}
-
-#loisirs i /*bordures et positionnement des icones*/
-{
-	color: var(--main-color);
-	border: 3px var(--main-color) solid;
-	border-radius: 50%;
-	padding: 0.6rem 0.6rem 0.6rem 0.6rem;
-	margin: 0.6rem 0.6rem 1rem 0.6rem;
-	font-size: 2.5em;
-}
-
-/* /////////////////// 4-2/ LE BLOC MAIN //////////////////// */
-
-/* //////////// 4-2-1/ Le header de main //////////////////// */
-main header
-{
-	justify-content: space-around;
-	text-align: left;
-	margin-left: 2rem;
-}
-
-
-h1 /*KARINE GRASSI*/
-{
-	margin-bottom: -1.5rem; 
-}
-
-header strong/*écrire uniquement "Karine" en amber*/, h2 i
-{
-	color: var(--main-bg-color);
-}
-
-header hr /*petite ligne sous "Développeuse"*/
-{
-	width: 2.5rem;
-	color: var(--main-bg-color);
-	margin: 0rem 5rem 1.2rem 0rem;
-}
-
-/* //////////// 4-2-2/ La grande section : form + exp ////////// */ 
-section /* Formation et expérience sont l'un à côté de l'autre en format PC */
-{
-	display: flex;
-	justify-content: space-around;
-}
-
-main i /*retrait des icones*/
-{
-	padding-right: 2rem;
-}
-
-h2 /* formation, expérience et recommandations */
-{
-	text-transform: uppercase;
-	text-align: left;
-	margin:2rem 2rem 0rem 2rem;
-}
-
-hr /*grandes lignes sous les h2*/
-{
-	height: 0.13rem;
-	border: var(--main-bg-color);
-	background-color: var(--main-bg-color);
-	color: var(--main-bg-color);
-	margin: 0rem 2rem 0.5rem 2rem;
-}
-
-/* //////////// les "tableaux" //////////////*/
-.grille 
-{
-	display: grid;
-	grid-template-columns: 1fr 140px 30fr;
-	margin: 0rem 1rem 0rem 1.5rem;
-}
-
-.grille >div
-{
-	padding-left: 0.5rem;
-}
-
-.grille i /*1ère colonne : position et couleur des puces*/
-{
-	padding-top: 1.6rem;
-	color: var(--main-bg-color);
-}
-
-.grille .fas.fa-circle /* Réduction de la taille des puces (petits disques)*/
-{
-	font-size: 0.5em;
-}
-
-h4 /*titres 3ème colonne  : BTS, formatrice, professeure ... */
-{
-	text-transform: uppercase;
-	margin: 1.3rem 0rem -0.7rem 0rem;
-}
-
-section li /*listes sans puce sous h4*/
-{
-	list-style-type: none;
-	margin-left: -2.5rem;
-}
-
-/* //////////// 4-2-3/ Le footer de main //////////////////// */
-#recommandations /*placer les deux listes en ligne sur toute la largeur*/
-{
-	display: flex;
-	justify-content: flex-start;
-}
-
-footer ul /*liste dans recommandations */
-{
-	width: 50%;
-	text-align: left;
-	margin-right: 15rem;
-	list-style-type: none;
-}
-	
-
-/* ////////////5/ STYLE ADAPTE AUX DIFFERENTS FORMATS ///////////// */
-@media all and (max-width: 1024px) /* 5-1/format tablette portrait */
-{
-	body
-	{
-		width: auto;
-	}
-
-	section /* "expérience se décale sous formation" */ 
-	{
-		width: auto;
-		flex-direction: column;
-	}
-
-	#experience em
-	{
-		display: none;
-	}
-			
-	footer ul 
-	{
-		margin-right: auto;
-		font-size: 0.9em;
-	}
-}
-
-@media all and (max-device-width: 480px) /* 5-2/ règles CSS pour les mobiles COMMENT VERIFIER CE FORMAT ???? */
-{
-	#conteneur /* les 2 gros blocs se positionnent l'un en dessous de l'autre */
-	{
-		display: inline-block;
-	}
-
-	aside, main
-	{
-		max-width: 100%;
-	}
-
-	#contact, #moi, aside footer
-	{
-		font-size: 0.8em;
-	}
-
-	#loisirs i
-	{
-		font-size: 1.5em;
-		padding: 0.2rem;
-	}
-
-	#loisirs
-	{
-		margin-top: -0.5rem;
-	}
-	
-	.grille 
-	{
-		grid-template-columns: 30px 1fr 2fr;
-		margin: 0rem 1rem 0rem 1rem;
-	}
-
-	#recommandations /* les 2 références se positionnent l'une en dessous de l'autre */
-	{
-		flex-direction: column;
-	}
-
-}
+/* ////////////// 5-1 PAGES-menu1 /////////////////*/
+/* ////////////// 5-2 PAGES-menu2 /////////////////*/
+/* ////////////// 5-3 PAGES-menu3 /////////////////*/
+/* ////////////// 5-4 PAGES-menu4 /////////////////*/
+/* ////////////// 5-5 PAGES-disclaimer /////////////////*/
