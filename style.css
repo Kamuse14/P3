@@ -1,17 +1,29 @@
 /* ////////////// 1- BASE_POLICES /////////////////*/
 @font-face {
     font-family: 'vtc_letterer_proregular';
-    src: url('police/VTC_letterer_pro-webfont.eot');
-    src: url('police/VTC_letterer_pro-webfont.eot?#iefix') format('embedded-opentype'),
-         url('police/VTC_letterer_pro-webfont.woff2') format('woff2'),
-         url('police/VTC_letterer_pro-webfont.woff') format('woff'),
-         url('police/VTC_letterer_pro-webfont.ttf') format('truetype'),
-         url('police/VTC_letterer_pro-webfont.svg#vtc_letterer_proregular') format('svg');
+    src: url('polices/VTC_letterer_pro-webfont.eot');
+    src: url('polices/VTC_letterer_pro-webfont.eot?#iefix') format('embedded-opentype'),
+         url('polices/VTC_letterer_pro-webfont.woff2') format('woff2'),
+         url('polices/VTC_letterer_pro-webfont.woff') format('woff'),
+         url('polices/VTC_letterer_pro-webfont.ttf') format('truetype'),
+         url('polices/VTC_letterer_pro-webfont.svg#vtc_letterer_proregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 
+@font-face {
+    font-family: 'typo_comics_light_demoregular';
+    src: url('polices/typo_comics_light_demo-webfont.eot');
+    src: url('polices/typo_comics_light_demo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('polices/typo_comics_light_demo-webfont.woff2') format('woff2'),
+         url('polices/typo_comics_light_demo-webfont.woff') format('woff'),
+         url('polices/typo_comics_light_demo-webfont.ttf') format('truetype'),
+         url('polices/typo_comics_light_demo-webfont.svg#typo_comics_light_demoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 body
 {
@@ -20,6 +32,10 @@ body
 	margin: auto;
 }
 
+a
+{
+	text-decoration: none;
+}
 
 /* ////////////// 2- UTILS_VARIABLES /////////////////*/
 
@@ -53,19 +69,161 @@ body
 header {
 	color: #FDCB46;
 	background-color: #579C87;
+	height: 6rem;
 	text-align: center;
+	padding-top: 0.1rem;
+	padding-bottom: 0.1rem;
+	font-size: 1.2rem;
 }
 /* ////////////// 3-2 LAYOUT_Footer /////////////////*/
 footer {
 	display: flex;
+	justify-content: space-between;
+	padding: 0 1rem 0 1rem;
 	color: #FDCB46;
 	background-color: #579C87;
 }
 
-/* ////////////// 4 COMPONENTS /////////////////*/
+footer a {
+	color: var(--txt-color)
+}
+/* ////////////// 4 COMPONENTS (animations) /////////////////*/
 
+
+.underline {
+ 	width: 3rem;
+	height: 0.1rem;
+	margin: auto;
+	border-radius: 50%;
+	background-color: #ef475f;
+	transform: scaleX(1);
+	transition: transform 2s 
+	
+}  
+
+.underline:hover {
+  	transform-origin: left;
+  	transform: scaleX(4);
+}
+
+/*@keyframes underline {
+    from {
+        transform: scaleX(0);
+        opacity: .1;
+    }
+    to {
+         transform: scaleX(1);
+    }
+    25% {
+        transform: scaleX(.4);
+    }
+       
+    85%,100% {
+    	transform: scaleX(.8);
+        opacity: 1;
+  	}
+  }*/
 /* ////////////// 5-1 PAGES-menu1 /////////////////*/
+h2 {
+	text-align: center;
+}
+
+#titre .fa-music {
+	font-size: 3rem;
+}
+
+.fa-music {
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ef475f+0,f6916a+100 */
+	/*background: #ef475f; /* Old browsers*/
+	background: -moz-linear-gradient(-45deg,  #ef475f 0%, #f6916a 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg,  #ef475f 0%,#f6916a 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg,  #ef475f 0%,#f6916a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef475f', endColorstr='#f6916a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#titre p {
+font-size: 2rem;
+margin: 0 2rem 0.5rem 2rem;
+}
+
+#first_menu {
+	background-color: var(--bg-menu1);
+	box-shadow: 2px 2px 10px grey;
+	width: 80%;
+	margin: 0.5rem 2rem 3rem 6rem;
+	padding: 1rem;
+	color: var(--txt-menu1);
+	text-align: center;
+}
+
+#titre, #titrebis {
+	font-family: "Devonshire";
+	padding-top: 1rem;
+	
+}
+
+/*#menu1 : pas centré pourquoi ?????
+	text-align: center;
+}*/
+
+table {
+	font-family: "typo_comics_light_demoregular";
+	width: 80%;	
+}
+
+caption {
+	display: flex;
+	justify-content: space-between;
+	margin-left: 2.7rem;
+}
+
+
+table h4 {
+	font-weight: lighter;
+	font-size: 1.2rem;
+}
+
+table tr {
+	text-align: left;
+	width: 90%;
+}
+
+table td {
+	padding-left: 3rem;
+}
+
+.prix {
+	text-align: right;
+}
+
+img {
+	width: 30%;
+	height: 1rem;
+	padding-top: 2rem;
+
+}
+
+#titrebis {
+	font-size: 1.7rem;
+}
+
+
+
 /* ////////////// 5-2 PAGES-menu2 /////////////////*/
+/*.menu1 :nth-child(1) {
+background-image: url("data:image/svg+xml;charset=utf8,%3C?xml version='1.0' standalone='no'?%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20010904//EN' 'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'%3E%3Csvg version='1.0' xmlns='http://www.w3.org/2000/svg' width='343.000000pt' height='42.000000pt' viewBox='0 0 343.000000 42.000000' preserveAspectRatio='xMidYMid meet'%3E%3Cmetadata%3E Created by potrace 1.15, written by Peter Selinger 2001-2017 %3C/metadata%3E%3Cg transform='translate(0.000000,42.000000) scale(0.100000,-0.100000)' fill='%23000000' stroke='none'%3E%3C/g%3E%3C/svg%3E");
+}*/
+#second_menu {
+	font-family: "Croissant One";
+}
 /* ////////////// 5-3 PAGES-menu3 /////////////////*/
+#third_menu {
+	font-family: "Dancing script";
+}
 /* ////////////// 5-4 PAGES-menu4 /////////////////*/
+#fourth_menu {
+	font-family: "Kaushan Script";
+}
 /* ////////////// 5-5 PAGES-disclaimer /////////////////*/
