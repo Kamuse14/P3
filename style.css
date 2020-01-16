@@ -79,13 +79,16 @@ header {
 footer {
 	display: flex;
 	justify-content: space-between;
+	width: 72vw;
 	padding: 0 1rem 0 1rem;
 	color: #FDCB46;
 	background-color: #579C87;
+	position: fixed;
+	bottom: 0;
 }
 
 footer a {
-	color: var(--txt-color)
+	color: var(--txt-color);
 }
 /* ////////////// 4 COMPONENTS (animations) /////////////////*/
 
@@ -98,7 +101,6 @@ footer a {
 	background-color: #ef475f;
 	transform: scaleX(1);
 	transition: transform 2s 
-	
 }  
 
 .underline:hover {
@@ -106,26 +108,10 @@ footer a {
   	transform: scaleX(4);
 }
 
-/*@keyframes underline {
-    from {
-        transform: scaleX(0);
-        opacity: .1;
-    }
-    to {
-         transform: scaleX(1);
-    }
-    25% {
-        transform: scaleX(.4);
-    }
-       
-    85%,100% {
-    	transform: scaleX(.8);
-        opacity: 1;
-  	}
-  }*/
 /* ////////////// 5-1 PAGES-menu1 /////////////////*/
 h2 {
 	text-align: center;
+	margin-top: 2rem;
 }
 
 #titre .fa-music {
@@ -151,8 +137,8 @@ margin: 0 2rem 0.5rem 2rem;
 #first_menu {
 	background-color: var(--bg-menu1);
 	box-shadow: 2px 2px 10px grey;
-	width: 80%;
-	margin: 0.5rem 2rem 3rem 6rem;
+	width: auto;
+	margin: 0.5rem 3rem 3rem 3rem;
 	padding: 1rem;
 	color: var(--txt-menu1);
 	text-align: center;
@@ -164,35 +150,34 @@ margin: 0 2rem 0.5rem 2rem;
 	
 }
 
-/*#menu1 : pas centré pourquoi ?????
-	text-align: center;
-}*/
+#menu1 {
+	width: auto;
+}
 
 table {
 	font-family: "typo_comics_light_demoregular";
-	width: 80%;	
+	width: 85%;
+	margin-left: 2.5rem;
+	margin-right: 2.5rem;	
 }
 
-caption {
+#menu1__sstitre {
 	display: flex;
 	justify-content: space-between;
-	margin-left: 2.7rem;
-}
-
-
-table h4 {
+	width: auto;
+	margin-left: 2.5rem;
+	margin-right: 2.5rem;
+	font-family: "typo_comics_light_demoregular";
 	font-weight: lighter;
 	font-size: 1.2rem;
 }
 
-table tr {
+.plat {
 	text-align: left;
-	width: 90%;
+	
 }
 
-table td {
-	padding-left: 3rem;
-}
+
 
 .prix {
 	text-align: right;
@@ -207,6 +192,8 @@ img {
 
 #titrebis {
 	font-size: 1.7rem;
+	padding-top: 1.5rem;
+	padding-bottom: 2rem;
 }
 
 
@@ -227,3 +214,9 @@ background-image: url("data:image/svg+xml;charset=utf8,%3C?xml version='1.0' sta
 	font-family: "Kaushan Script";
 }
 /* ////////////// 5-5 PAGES-disclaimer /////////////////*/
+#disclaimer span {
+	text-transform: uppercase;
+}
+#disclaimer h2 {
+	text-align: left;
+}
