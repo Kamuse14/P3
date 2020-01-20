@@ -2,10 +2,10 @@
 					/*SOMMAIRE*/
 /*--------------------------------------------------*/
 /*
-	Ligne 14 - Base (@font-face, body et général)
-	Ligne 53 - Utils (variables)
-	Ligne 81 - Layout (header, footer)
-	Ligne 120 - Components (animations)
+	Ligne 23 - Base (@font-face, @media et général)
+	Ligne 121 - Utils (variables)
+	Ligne 150 - Layout (header, footer)
+	Ligne 179 - Components (animations)
 	 	L -> zoom menus
 	 	L -> points de suspension
 	 	L -> wiggles
@@ -18,10 +18,9 @@
 		l -> styles spécifiques au menu 3
 		l -> styles spécifiques au menu 4
 		L509 -> page Mentions Légales
-	Ligne  - Médias (tablette, smartphone)
 */
 
-/* ////////////// 1- BASE_POLICES /////////////////*/
+/* ////////////// 1-1 BASE_Polices /////////////////*/
 @font-face {
     font-family: 'vtc_letterer_proregular';
     src: url('polices/VTC_letterer_pro-webfont.eot');
@@ -45,18 +44,83 @@
          url('polices/typo_comics_light_demo-webfont.svg#typo_comics_light_demoregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
-body
-{
+/* ////////////// 1-2 BASE_Régles adaptées à l'impression et aux différents médias /////////////////*/
+/* règles CSS pour l'impression de chaque menu*/
+/*@media print {
+	body {
+  		width: auto;
+  		margin: auto;
+  	}
+
+	header, footer {
+		display: none!important;
+	}
+
+	section[id*="_menu"] {
+		background-color: #fff; 
+	}
+
+	.box_menu {
+		min-height: auto!important;
+		margin-bottom: auto!important;
+	}
+
+	#titre {
+		display: none!important;
+	}
+}
+
+/* règles CSS pour les mobiles */
+@media all and (max-device-width: 480px) {
+	body {
+		width: 100%!important;
+	}
+
+	main h2 {
+		display: none;
+	}
+
+	footer {
+		width: 100%!important;
+		flex-direction: column;
+		text-align: center;
+		font-size: 0.7em;
+		right:-1rem;
+	}
+
+	#index .menu {
+		height: 30vh!important;
+		font-size: 0.7em;
+	}
+
+	#soon {
+		margin-bottom: 15vh!important;
+	}
+
+	.box_menu {
+		margin-bottom: 15vh;
+		padding-right: 1.5rem;
+	}
+
+	div[class*="sstitre"] {
+		align-items: center;
+	}
+
+	#music img, #chic img, #papilles img, #palette img {
+		margin-top: 0.5rem!important;
+	}
+}
+
+/* ////////////// 1-3 BASE_Régles générales /////////////////*/
+body {
 	font-family: 'Roboto', arial, sans-serif;
 	width: 75%;
 	margin: auto;
 }
 
-a
-{
+a {
 	text-decoration: none;
 }
 
@@ -84,6 +148,7 @@ a
 	--bg-menu4: #FDFFFD;
 	--txt-menu4: #72BF56;
 	--bar-darken-menu4: #3D923A;
+	--bar-normal-menu4: #72BF56;
 	--bar-lighten-menu4: #BFFF7E;
 }
 
@@ -120,41 +185,21 @@ footer a {
 /* ////////////// 4 COMPONENTS (animations) /////////////////*/
 
 /* les zooms + fondu*/
-div[id*="menu0"]  {
-	transition: all 800ms ease-in-out;
-}
-
-#menu01:hover, #menu02:hover, #menu03:hover, #menu04:hover {
-	transform: scale(1.8);
-	-webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#menu01:hover, #menu01:hover #menu01__i {background: var(--bg-menu1);}
-#menu02:hover, #menu02:hover #menu02__p {background: var(--bg-menu2);}
-#menu03:hover {background: var(--bg-menu3);}
-#menu04:hover {background: var(--bg-menu4);}
 
 .menu {
 	overflow: hidden;
 }
 
-/*#menu01:hover, #menu02:hover, #menu03:hover, #menu04:hover, #menu01:hover i,  {
-	animation: zoom 1000ms 600ms backwards ease-in-out;
+div[id*="menu0"] {
+	transition: all 800ms ease-in-out;
 }
 
-@keyframes zoom {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.8);
-    -webkit-background-clip: text;
+div[id*="menu0"]:hover {
+	transform: scale(1.8);
+	-webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background: var(--bg-menu1);
-  }
-}*/
-
+    opacity: 0;
+}
 
 /* les points de suspension*/
 #soon:hover span {
@@ -257,12 +302,10 @@ footer h3:hover {
 
 #index .menu {
 	box-shadow: 2px 2px 10px grey;
-	width: 30rem;
-	height: 70vh;
+	width: 45vh;
+	height: 60vh;
 	text-align: center;
-	margin: auto;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+	margin: 1rem auto 1rem auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -381,10 +424,9 @@ margin: 0 2rem 0.5rem 2rem;
 .box_menu {
 	box-shadow: 2px 2px 10px grey;
 	width: auto;
+	margin: auto auto 10vh auto;
 	max-width: 70vh;
 	min-height: 80vh;
-	margin: auto;
-	margin-bottom: 10vh;
 	text-align: center;
 }
 
@@ -454,7 +496,7 @@ font-size: 2rem;
 }
 
 #music img {
-	padding-top: 1.6rem;
+	margin-top: 1.8rem;
 }
 
 #titrebis {
