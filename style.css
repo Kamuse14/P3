@@ -1,4 +1,26 @@
-/* ////////////// 1- BASE_POLICES /////////////////*/
+/*--------------------------------------------------*/
+					/*SOMMAIRE*/
+/*--------------------------------------------------*/
+/*
+	Ligne 23 - Base (@font-face, @media et général)
+	Ligne 121 - Utils (variables)
+	Ligne 150 - Layout (header, footer)
+	Ligne 179 - Components (animations)
+	 	L -> zoom menus
+	 	L -> points de suspension
+	 	L -> wiggles
+	 	L -> surlignage
+	Ligne  - Pages (accueil, menu1,2,3,4, Mentions Légales)
+		L -> page d'accueil
+		L -> styles communs à tous les menus
+		l -> styles spécifiques au menu 1
+		l -> styles spécifiques au menu 2
+		l -> styles spécifiques au menu 3
+		l -> styles spécifiques au menu 4
+		L509 -> page Mentions Légales
+*/
+
+/* ////////////// 1-1 BASE_Polices /////////////////*/
 @font-face {
     font-family: 'vtc_letterer_proregular';
     src: url('polices/VTC_letterer_pro-webfont.eot');
@@ -22,18 +44,83 @@
          url('polices/typo_comics_light_demo-webfont.svg#typo_comics_light_demoregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
-body
-{
-	font-family: arial, sans-serif;
+/* ////////////// 1-2 BASE_Régles adaptées à l'impression et aux différents médias /////////////////*/
+/* règles CSS pour l'impression de chaque menu*/
+/*@media print {
+	body {
+  		width: auto;
+  		margin: auto;
+  	}
+
+	header, footer {
+		display: none!important;
+	}
+
+	section[id*="_menu"] {
+		background-color: #fff; 
+	}
+
+	.box_menu {
+		min-height: auto!important;
+		margin-bottom: auto!important;
+	}
+
+	#titre {
+		display: none!important;
+	}
+}
+
+/* règles CSS pour les mobiles */
+@media all and (max-device-width: 480px) {
+	body {
+		width: 100%!important;
+	}
+
+	main h2 {
+		display: none;
+	}
+
+	footer {
+		width: 100%!important;
+		flex-direction: column;
+		text-align: center;
+		font-size: 0.7em;
+		right:-1rem;
+	}
+
+	#index .menu {
+		height: 30vh!important;
+		font-size: 0.7em;
+	}
+
+	#soon {
+		margin-bottom: 15vh!important;
+	}
+
+	.box_menu {
+		margin-bottom: 15vh;
+		padding-right: 1.5rem;
+	}
+
+	div[class*="sstitre"] {
+		align-items: center;
+	}
+
+	#music img, #chic img, #papilles img, #palette img {
+		margin-top: 0.5rem!important;
+	}
+}
+
+/* ////////////// 1-3 BASE_Régles générales /////////////////*/
+body {
+	font-family: 'Roboto', arial, sans-serif;
 	width: 75%;
 	margin: auto;
 }
 
-a
-{
+a {
 	text-decoration: none;
 }
 
@@ -61,22 +148,23 @@ a
 	--bg-menu4: #FDFFFD;
 	--txt-menu4: #72BF56;
 	--bar-darken-menu4: #3D923A;
+	--bar-normal-menu4: #72BF56;
 	--bar-lighten-menu4: #BFFF7E;
 }
 
 
 /* ////////////// 3-1 LAYOUT_Header /////////////////*/
 header {
-	color: #FDCB46;
+	color: var(--txt-color);
 	background-color: #579C87;
-	height: 4.5rem;
+	height: 5.5rem;
 	text-align: center;
 	font-size: 1.2rem;
 }
 
 h1 {
 	margin: 0;
-	padding-top: 0.5rem;
+	padding-top: 1rem;
 }
 
 /* ////////////// 3-2 LAYOUT_Footer /////////////////*/
@@ -85,8 +173,7 @@ footer {
 	justify-content: space-between;
 	width: 72%;
 	padding: 0 1rem 0 1rem;
-	color: #FDCB46;
-	background-color: #579C87;
+	background-color: var(--bg-txt-color);
 	position: fixed;
 	bottom: 0;
 }
@@ -94,7 +181,63 @@ footer {
 footer a {
 	color: var(--txt-color);
 }
+
 /* ////////////// 4 COMPONENTS (animations) /////////////////*/
+
+/* les zooms + fondu*/
+
+.menu {
+	overflow: hidden;
+}
+
+div[id*="menu0"] {
+	transition: all 800ms ease-in-out;
+}
+
+div[id*="menu0"]:hover {
+	transform: scale(1.8);
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+}
+
+/* les points de suspension*/
+#soon:hover span {
+	display: none;
+}
+
+#ellipsis {
+	display: flex;
+	justify-content: center;
+
+}
+
+.point {
+	background-color: var(--txt-color);
+	border-radius: 50%;
+	height: 1vh;
+	width: 1vh;
+	margin: 0.5vh;
+}
+
+#ellipsis:hover .point--1 {
+	 animation: points 1000ms 200ms backwards infinite alternate ease-in-out;
+}
+#ellipsis:hover .point--2 {
+	 animation: points 1000ms  400ms backwards infinite alternate ease-in-out;
+}
+#ellipsis:hover .point--3 {
+	 animation: points 1000ms 600ms backwards infinite alternate ease-in-out;
+}
+
+@keyframes points {
+  0% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 /* effet wiggle sur Mentions légales et contact*/
 footer h3:hover {
@@ -110,36 +253,214 @@ footer h3:hover {
 	}
 }
 
-
 /*au survol des sous-titres "entrées" "plats" et "desserts", un soulignement apparaît*/ 
 .underline {
  	width: 3rem;
 	height: 0.1rem;
-	margin: -1.5rem auto;
-	border-radius: 50%;
-	background-color: #ef475f;
-	transform: scaleX(1);
+	border-radius: 50%;	
+	transform: scaleX(0);
 	transition: transform 2s 
 }  
 
-#menu1__sstitre:hover + .underline {
+#music .underline {
+	margin: -1.4rem auto;
+	background-color: #ef475f;
+}
+
+#chic .underline {
+	margin: -0.8rem auto;
+}
+
+#chic #paragraph1 .underline {background-color: var(--txt-1-menu2);}
+#chic #paragraph2 .underline {background-color: var(--txt-2-menu2);}
+#chic #paragraph3 .underline {background-color: var(--txt-3-menu2);}
+
+#papilles .underline {
+	margin: -1rem auto;
+}
+
+#papilles #paragraph1 .underline {background-color: var(--bar-darken-menu3);}
+#papilles #paragraph2 .underline {background-color: var(--bar-normal-menu3);}
+#papilles #paragraph3 .underline {background-color: var(--bar-lighten-menu3);}
+
+#palette .underline {
+	margin: -1rem auto;
+	background-color: var(--bar-darken-menu4);
+}
+
+.menu1__sstitre:hover + .underline, .menu2__sstitre:hover + .underline, .menu3__sstitre:hover + .underline,.menu4__sstitre:hover + .underline {
   	transform: scaleX(4);
 }
 
-/* ////////////// 5-1 PAGES-menu1 /////////////////*/
+/* ////////////// 5-0 PAGES-index /////////////////*/
+#index {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1rem 2.5rem 1rem 2.5rem;
+
+}
+
+#index .menu {
+	box-shadow: 2px 2px 10px grey;
+	width: 45vh;
+	height: 60vh;
+	text-align: center;
+	margin: 1rem auto 1rem auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#soon {
+	background-color: var(--bg-txt-color);
+	color: var(--txt-color);
+	font-size: 1.7em;
+	text-align: center;
+	width: 20rem;
+	height: 7vh;
+	border-radius: 1rem;
+	margin: auto;
+	margin-bottom: 10vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+}
+
+#soon span {
+	padding-bottom: 2vh;
+	padding-top: 3vh;
+}
+
+/*box - menu1*/
+#menu_1 {
+	background-color: var(--bg-menu1);
+}
+
+#menu01 .fa-music {
+	font-size: 4em;
+}
+
+#menu01 p {
+	font: 2.5em "Devonshire";
+	color: var(--txt-menu1);
+	margin-top: 0;
+}
+
+#menu01 div {
+	font: 3em 'typo_comics_light_demoregular';
+	text-transform: uppercase; 
+	color: var(--txt-menu1);
+}
+
+/*box - menu2*/
+#menu_2 {
+	background-color: var(--bg-menu2);
+}
+
+#menu02 p {
+	font: 2em "Croissant One";
+	margin-top: 0;
+  	background: -webkit-linear-gradient(-45deg, #C77412 20%, #6E4CCC 80%);
+  	background: linear-gradient(135deg, #C77412 20%, #6E4CCC 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#menu02 div {
+	font: 3em 'Gelasio:600';
+	color: var(--txt-1-menu2);
+}
+
+/*box - menu3*/
+#menu_3 {
+	background-color: var(--bg-menu3);
+}
+
+#menu03 p {
+	font: 3em "Dancing script";
+	margin-top: 0;
+	background: -webkit-linear-gradient(-45deg, #0228DD 30%, #55B5FB 60%);
+  	background: linear-gradient(135deg, #0228DD 30%, #55B5FB 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#menu03 div {
+	font: 3em 'typo_comics_light_demoregular';
+	color: var(--txt-menu3);
+}
+
+/*box - menu4*/
+#menu_4 {
+	background-color: var(--bg-menu4);
+}
+
+#menu04 p {
+	font: 2.5em "Kaushan Script";
+	margin-top: 0;
+  	background: -webkit-linear-gradient(-45deg, #3D923A 20%, #BFFF7E 80%);
+  	background: linear-gradient(135deg, #3D923A 20%, #BFFF7E 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#menu04 div {
+	font: 3em 'typo_comics_light_demoregular';
+	color: var(--txt-menu4);
+}
+
+
+/* ////////////// 5-0 PAGES-commun aux 4 menus /////////////////*/
 h2 {
 	text-align: center;
 	margin-top: 2rem;
 }
 
+#titre p {
+margin: 0 2rem 0.5rem 2rem;
+}
+
+.box_menu {
+	box-shadow: 2px 2px 10px grey;
+	width: auto;
+	margin: auto auto 10vh auto;
+	max-width: 70vh;
+	min-height: 80vh;
+	text-align: center;
+}
+
+div[class*="sstitre"] {
+	display: flex;
+	justify-content: space-between;
+	width: auto;
+	margin: 0rem 2.5rem 0rem 2.5rem;
+	cursor: pointer;
+}
+
+img {
+	width: 30%;
+	height: 1rem;
+}
+table {
+	width: 85%;
+}
+.plat {
+	text-align: left;
+}
+
+.prix {
+	text-align: right;
+}
+
+/* ////////////// 5-1 PAGES-menu1 /////////////////*/
+
 #titre .fa-music {
 	font-size: 3rem;
+	margin-top: 1rem;
 }
 
 .fa-music {
-	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ef475f+0,f6916a+100 */
-	/*background: #ef475f; /* Old browsers*/
-	background: -moz-linear-gradient(-45deg,  #ef475f 0%, #f6916a 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(-45deg,  #ef475f 0%,#f6916a 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(135deg,  #ef475f 0%,#f6916a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef475f', endColorstr='#f6916a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
@@ -147,65 +468,35 @@ h2 {
     -webkit-text-fill-color: transparent;
 }
 
-#titre p {
+#music #titre p {
 font-size: 2rem;
-margin: 0 2rem 0.5rem 2rem;
 }
 
 #first_menu {
 	background-color: var(--bg-menu1);
-	box-shadow: 2px 2px 10px grey;
-	width: auto;
-	margin: 0.5rem 3rem 3rem 3rem;
-	padding: 1rem;
 	color: var(--txt-menu1);
-	text-align: center;
 }
 
-#titre, #titrebis {
+#music #titre, #music #titrebis {
 	font-family: "Devonshire";
 	padding-top: 1rem;
-	
 }
 
 #menu1 {
 	width: auto;
 }
 
-table {
+#music table {
 	font-family: "typo_comics_light_demoregular";
-	width: 85%;
-	margin: 2.5rem;	
+	margin: 2.5rem;
 }
 
-#menu1__sstitre {
-	display: flex;
-	justify-content: space-between;
-	width: auto;
-	margin-left: 2.5rem;
-	margin-right: 2.5rem;
-	cursor: pointer;
-	font-family: "typo_comics_light_demoregular";
-	font-weight: lighter;
-	font-size: 1.2rem;
+.menu1__sstitre {
+	font: bold 1.3em "typo_comics_light_demoregular";
 }
 
-.plat {
-	text-align: left;
-	
-}
-
-
-
-.prix {
-	text-align: right;
-}
-
-img {
-	width: 30%;
-	height: 1rem;
-	padding-top: 2rem;
-
+#music img {
+	margin-top: 1.8rem;
 }
 
 #titrebis {
@@ -214,22 +505,112 @@ img {
 	padding-bottom: 2rem;
 }
 
-
+#titrebis i {
+	font-size: 1.7rem;
+}
 
 /* ////////////// 5-2 PAGES-menu2 /////////////////*/
-/*.menu1 :nth-child(1) {
-background-image: url("data:image/svg+xml;charset=utf8,%3C?xml version='1.0' standalone='no'?%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20010904//EN' 'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'%3E%3Csvg version='1.0' xmlns='http://www.w3.org/2000/svg' width='343.000000pt' height='42.000000pt' viewBox='0 0 343.000000 42.000000' preserveAspectRatio='xMidYMid meet'%3E%3Cmetadata%3E Created by potrace 1.15, written by Peter Selinger 2001-2017 %3C/metadata%3E%3Cg transform='translate(0.000000,42.000000) scale(0.100000,-0.100000)' fill='%23000000' stroke='none'%3E%3C/g%3E%3C/svg%3E");
-}*/
+
 #second_menu {
-	font-family: "Croissant One";
+	background-color: var(--bg-menu2);
+	padding-bottom: 5vh;
+	color: var(--txt-1-menu2);
+	
 }
+
+#chic #titre {
+	font: 1.5em "Croissant One";
+	padding-top: 5rem;
+	padding-bottom: 3rem;
+	background: -webkit-linear-gradient(-45deg, #C77412 0%, #6E4CCC 100%);
+  	background: linear-gradient(135deg, #C77412 0%, #6E4CCC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#chic img {
+	margin-top: 1.2rem;
+}
+
+#chic #paragraph1 img {	background-color: var(--txt-1-menu2);}
+#chic #paragraph2 img {	background-color: var(--txt-2-menu2);}
+#chic #paragraph3 img {	background-color: var(--txt-3-menu2);}
+
+#chic table {
+	font: 0.9em "Gelasio";
+	padding: 2.5rem 0rem 2rem 5rem;	
+}
+
+#chic #paragraph1 {color: var(--txt-1-menu2);}
+#chic #paragraph2 {color: var(--txt-2-menu2);}
+#chic #paragraph3 {color: var(--txt-3-menu2);}
+
+.menu2__sstitre {
+	font: bold 1rem "Gelasio";
+}
+
 /* ////////////// 5-3 PAGES-menu3 /////////////////*/
 #third_menu {
-	font-family: "Dancing script";
+	background-color: var(--bg-menu3);
+	padding-bottom: 5vh;
 }
+
+#papilles #titre {
+	font: 2.5em "Dancing script";
+	padding-top: 5rem;
+	padding-bottom: 3rem;
+	background: -webkit-linear-gradient(-45deg, #0228DD 30%, #55B5FB 60%);
+  	background: linear-gradient(135deg, #0228DD 30%, #55B5FB 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#papilles img {
+	margin-top: 1.2rem;
+	width: 30%;
+}
+
+#papilles #paragraph1 img {background-color: var(--bar-darken-menu3);}
+#papilles #paragraph2 img {background-color: var(--bar-normal-menu3);}
+#papilles #paragraph3 img {background-color: var(--bar-lighten-menu3);}
+
+#papilles table {
+	font: 0.9em 'typo_comics_light_demoregular';
+	padding: 2rem 0rem 1.5rem 4rem;	
+}
+
+.menu3__sstitre {
+	font: 1rem 'typo_comics_light_demoregular';
+}
+
 /* ////////////// 5-4 PAGES-menu4 /////////////////*/
 #fourth_menu {
-	font-family: "Kaushan Script";
+	background-color: var(--bg-menu4);
+	padding-bottom: 5vh;
+}
+
+#palette #titre {
+	font: 2.5em "Kaushan Script";
+	padding-top: 4rem;
+	padding-bottom: 2rem;
+	background: -webkit-linear-gradient(-45deg, #3D923A 0%, #BFFF7E 100%);
+  	background: linear-gradient(135deg, #3D923A 0%, #BFFF7E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#palette img {
+	margin-top: 1.1rem;
+	width: 37%;
+}
+
+#palette table {
+	font: 0.8em 'typo_comics_light_demoregular';
+	padding: 2rem 0rem 2rem 4rem;	
+}
+
+.menu4__sstitre {
+	font: 0.9rem 'typo_comics_light_demoregular';
 }
 /* ////////////// 5-5 PAGES-disclaimer /////////////////*/
 #disclaimer span {
