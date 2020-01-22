@@ -6,19 +6,19 @@
 	Ligne 121 - Utils (variables)
 	Ligne 150 - Layout (header, footer)
 	Ligne 179 - Components (animations)
-	 	L -> surlignage
-	 	L -> zoom menus
-	 	L -> points de suspension
-	 	L -> wiggles
+	 	 -> zoom menus
+	 	 -> points de suspension
+	 	 -> wiggles
+	 	 -> surlignage
 	 	
-	Ligne  - Pages (Mentions Légales, menu1,2,3,4, accueil )
-		L -> styles spécifiques à Mentions Légales
-		L -> styles communs à tous les menus
-		l -> styles spécifiques au menu 1
-		l -> styles spécifiques au menu 2
-		l -> styles spécifiques au menu 3
-		l -> styles spécifiques au menu 4
-		L -> page d'accueil
+	Ligne  - Pages (accueil, menu1,2,3,4, Mentions Légales )
+		 -> styles spécifiques à Mentions Légales
+		 -> styles communs à tous les menus
+		 -> styles spécifiques au menu 1
+		 -> styles spécifiques au menu 2
+		 -> styles spécifiques au menu 3
+		 -> styles spécifiques au menu 4
+		 -> page d'accueil
 	Ligne  - Responsivité
 */
 
@@ -96,7 +96,7 @@ footer {
 	display: flex;
 	justify-content: space-between;
 	width: 72%;
-	padding: 0 1rem 0 1rem;
+	padding: 0 1rem;
 	background-color: var(--bg-txt-color);
 	position: fixed;
 	left: 14%;
@@ -187,13 +187,13 @@ footer h3:hover {
 
 /*au survol des sous-titres "entrées" "plats" et "desserts", un soulignement apparaît*/ 
 .underline {
- 	width: 3rem;
+ 	width: auto;
 	height: 0.1rem;
 	border-radius: 50%;	
 	transform: scaleX(0);
 	transform-origin: 0% 50%;
 	transition: transform 2s; 
-	margin: -0.8rem auto 0 35%;
+	margin: -0.8rem 60% 0 30%;
 }  
 
 #music .underline {
@@ -537,8 +537,11 @@ font-size: 2rem;
 	font: 0.9rem 'typo_comics_light_demoregular';
 }
 /* ////////////// 5-5 PAGES-disclaimer /////////////////*/
-#disclaimer span {
-	text-transform: uppercase;
+#disclaimer {
+	margin: 1rem;
+}
+#about p {
+	text-align: justify;
 }
 #disclaimer h2 {
 	text-align: left;
@@ -554,17 +557,14 @@ font-size: 2rem;
 		font-size: 1.8em;
 		height: auto;
 	}
-	main h2 {
+	#music h2, #chic h2, #papilles h2, #palette h2 {
 			display: none;
 	}
 	.box_menu {
 		width: 60vh;
 	}
 	footer {
-		width: 100%;
-		flex-direction: column;
-		text-align: center;
-		font-size: 1em;
+		width: 96%;
 		left:0;
 		right: 0;
 	}
@@ -582,8 +582,9 @@ font-size: 2rem;
 @media all and (max-device-width: 480px) {
 	
 	footer {
-		left:0;
-		right: 0;
+		flex-direction: column;
+		text-align: center;
+		font-size: 1em;
 	}
 	#index .menu {
 		height: 30vh;
