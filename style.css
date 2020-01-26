@@ -2,24 +2,25 @@
 					/*SOMMAIRE*/
 /*--------------------------------------------------*/
 /*
-	Ligne 23 - Base (@font-face et général)
-	Ligne 121 - Utils (variables)
-	Ligne 150 - Layout (header, footer)
-	Ligne 179 - Components (animations)
-	 	L -> surlignage
-	 	L -> zoom menus
-	 	L -> points de suspension
-	 	L -> wiggles
+	Ligne 25 - Base (@font-face et général)
+	Ligne 51 - Utils (variables)
+	Ligne 80 - Layout (header, footer)
+	Ligne 111 - Components (animations)
+	 	 -> zoom menus
+	 	 -> points de suspension
+	 	 -> wiggles
+	 	 -> surlignage
 	 	
-	Ligne  - Pages (Mentions Légales, menu1,2,3,4, accueil )
-		L -> styles spécifiques à Mentions Légales
-		L -> styles communs à tous les menus
-		l -> styles spécifiques au menu 1
-		l -> styles spécifiques au menu 2
-		l -> styles spécifiques au menu 3
-		l -> styles spécifiques au menu 4
-		L -> page d'accueil
-	Ligne  - Responsivité
+	Ligne 218  - Pages (accueil, menu1,2,3,4, Mentions Légales )
+		 -> styles spécifiques à Mentions Légales
+		 -> page d'accueil
+		 -> styles communs à tous les menus
+		 -> styles spécifiques au menu 1
+		 -> styles spécifiques au menu 2
+		 -> styles spécifiques au menu 3
+		 -> styles spécifiques au menu 4
+		 
+	Ligne 550 - Responsivité
 */
 
 /* ////////////// 1-1 BASE_Polices /////////////////*/
@@ -35,7 +36,7 @@
     font-style: normal;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Croissant+One|Dancing+Script|Devonshire|Gelasio|Kaushan+Script|Noto+Serif|Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Croissant+One|Dancing+Script|Devonshire|Kaushan+Script|Noto+Serif|Roboto&display=swap');
 
 /* ////////////// 1-2 BASE_Régles générales /////////////////*/
 body {
@@ -76,7 +77,6 @@ a {
 	--bar-lighten-menu4: #BFFF7E;
 }
 
-
 /* ////////////// 3-1 LAYOUT_Header /////////////////*/
 header {
 	color: var(--txt-color);
@@ -95,12 +95,11 @@ h1 {
 footer {
 	display: flex;
 	justify-content: space-between;
-	width: 72%;
-	padding: 0 1rem 0 1rem;
+	padding: 0 1rem;
 	background-color: var(--bg-txt-color);
 	position: fixed;
-	left: 14%;
-	right: 14%;
+	left: 15%;
+	right: 15%;
 	bottom: 0;
 	font-size: 1.3em;
 }
@@ -124,8 +123,9 @@ div[id*="menu0"] {
 div[id*="menu0"]:hover {
 	transform: scale(1.8);
 	-webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
     opacity: 0.2;
+    cursor: pointer;
 }
 
 /* les points de suspension*/
@@ -140,7 +140,6 @@ div[id*="menu0"]:hover {
 #ellipsis {
 	display: flex;
 	justify-content: center;
-
 }
 
 .point {
@@ -152,13 +151,13 @@ div[id*="menu0"]:hover {
 }
 
 #ellipsis:hover .point--1 {
-	 animation: points 1000ms 200ms backwards infinite alternate ease-in-out;
+	 animation: points 1000ms 200ms both infinite alternate ease-in-out;
 }
 #ellipsis:hover .point--2 {
-	 animation: points 1000ms  400ms backwards infinite alternate ease-in-out;
+	 animation: points 1000ms  400ms both infinite alternate ease-in-out;
 }
 #ellipsis:hover .point--3 {
-	 animation: points 1000ms 600ms backwards infinite alternate ease-in-out;
+	 animation: points 1000ms 600ms both infinite alternate ease-in-out;
 }
 
 @keyframes points {
@@ -187,13 +186,13 @@ footer h3:hover {
 
 /*au survol des sous-titres "entrées" "plats" et "desserts", un soulignement apparaît*/ 
 .underline {
- 	width: 3rem;
+ 	width: auto;
 	height: 0.1rem;
 	border-radius: 50%;	
 	transform: scaleX(0);
 	transform-origin: 0% 50%;
 	transition: transform 2s; 
-	margin: -0.8rem auto 0 35%;
+	margin: -0.8rem 60% 0 30%;
 }  
 
 #music .underline {
@@ -288,7 +287,7 @@ footer h3:hover {
   	background: -webkit-linear-gradient(-45deg, #C77412 20%, #6E4CCC 80%);
   	background: linear-gradient(135deg, #C77412 20%, #6E4CCC 80%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 #menu02 div {
@@ -307,7 +306,7 @@ footer h3:hover {
 	background: -webkit-linear-gradient(-45deg, #0228DD 30%, #55B5FB 60%);
   	background: linear-gradient(135deg, #0228DD 30%, #55B5FB 60%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 #menu03 div {
@@ -326,14 +325,13 @@ footer h3:hover {
   	background: -webkit-linear-gradient(-45deg, #3D923A 20%, #BFFF7E 80%);
   	background: linear-gradient(135deg, #3D923A 20%, #BFFF7E 80%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 #menu04 div {
 	font: 3em 'typo_comics_light_demoregular';
 	color: var(--txt-menu4);
 }
-
 
 /* ////////////// 5-0 PAGES-commun aux 4 menus /////////////////*/
 h2 {
@@ -385,11 +383,10 @@ table {
 }
 
 .fa-music {
-	background: -webkit-linear-gradient(-45deg,  #ef475f 0%,#f6916a 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(135deg,  #ef475f 0%,#f6916a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef475f', endColorstr='#f6916a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	background: -webkit-linear-gradient(-45deg,  #ef475f 0%,#f6916a 100%); 
+	background: linear-gradient(135deg,  #ef475f 0%,#f6916a 100%); 
 	-webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 #music #titre p {
@@ -449,7 +446,7 @@ font-size: 2rem;
 	background: -webkit-linear-gradient(-45deg, #C77412 0%, #6E4CCC 100%);
   	background: linear-gradient(135deg, #C77412 0%, #6E4CCC 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 #chic img {
@@ -486,7 +483,7 @@ font-size: 2rem;
 	background: -webkit-linear-gradient(-45deg, #0228DD 30%, #55B5FB 60%);
   	background: linear-gradient(135deg, #0228DD 30%, #55B5FB 60%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 #papilles img {
@@ -520,7 +517,7 @@ font-size: 2rem;
 	background: -webkit-linear-gradient(-45deg, #3D923A 0%, #BFFF7E 100%);
   	background: linear-gradient(135deg, #3D923A 0%, #BFFF7E 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 #palette img {
@@ -536,14 +533,19 @@ font-size: 2rem;
 .menu4__sstitre {
 	font: 0.9rem 'typo_comics_light_demoregular';
 }
+
 /* ////////////// 5-5 PAGES-disclaimer /////////////////*/
-#disclaimer span {
-	text-transform: uppercase;
+#disclaimer {
+	margin: 1rem;
+}
+#about p {
+	text-align: justify;
 }
 #disclaimer h2 {
 	text-align: left;
 }
 
+/* ////////////// 6- RESPONSIVITE /////////////////*/
 /* règles CSS pour les tablettes */
 @media all and (max-device-width: 1024px) {
 	body {
@@ -554,17 +556,13 @@ font-size: 2rem;
 		font-size: 1.8em;
 		height: auto;
 	}
-	main h2 {
+	#music h2, #chic h2, #papilles h2, #palette h2 {
 			display: none;
 	}
 	.box_menu {
 		width: 60vh;
 	}
 	footer {
-		width: 100%;
-		flex-direction: column;
-		text-align: center;
-		font-size: 1em;
 		left:0;
 		right: 0;
 	}
@@ -582,8 +580,9 @@ font-size: 2rem;
 @media all and (max-device-width: 480px) {
 	
 	footer {
-		left:0;
-		right: 0;
+		flex-direction: column;
+		text-align: center;
+		font-size: 1em;
 	}
 	#index .menu {
 		height: 30vh;
