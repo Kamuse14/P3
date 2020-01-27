@@ -24,6 +24,8 @@
 */
 
 /* ////////////// 1-1 BASE_Polices /////////////////*/
+@import url('https://fonts.googleapis.com/css?family=Croissant+One|Dancing+Script|Devonshire|Kaushan+Script|Noto+Serif|Roboto&display=swap');
+
 @font-face {
     font-family: 'typo_comics_light_demoregular';
     src: url('polices/typo_comics_light_demo-webfont.eot');
@@ -35,8 +37,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
-@import url('https://fonts.googleapis.com/css?family=Croissant+One|Dancing+Script|Devonshire|Kaushan+Script|Noto+Serif|Roboto&display=swap');
 
 /* ////////////// 1-2 BASE_Régles générales /////////////////*/
 body {
@@ -568,7 +568,7 @@ font-size: 2rem;
 	}
 
 	#soon {
-		margin-bottom: 13vh;
+		margin-bottom: 11vh;
 	}
 
 	#index .menu {
@@ -590,7 +590,9 @@ font-size: 2rem;
 	}
 
 	#soon {
-		margin-bottom: 17vh;
+		margin-bottom: 20vh;
+		font-size: 1.5em;
+		width: auto;
 	}
 
 	.box_menu {
