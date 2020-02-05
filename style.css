@@ -2,8 +2,8 @@
 					/*SOMMAIRE*/
 /*--------------------------------------------------*/
 /*
-	Ligne 25 - Base (@font-face et général)
-	Ligne 51 - Utils (variables)
+	Ligne 26 - Base (Polices et général)
+	Ligne 52 - Utils (variables)
 	Ligne 80 - Layout (header, footer)
 	Ligne 111 - Components (animations)
 	 	 -> zoom menus
@@ -20,7 +20,7 @@
 		 -> styles spécifiques au menu 3
 		 -> styles spécifiques au menu 4
 		 
-	Ligne 550 - Responsivité
+	Ligne 527 - Responsivité
 */
 
 /* ////////////// 1-1 BASE_Polices /////////////////*/
@@ -133,13 +133,14 @@ div[id*="menu0"]:hover {
 	cursor: pointer;
 }
 
-#soon:hover span {
+#soon:hover p {
 	display: none;
 }
 
 #ellipsis {
 	display: flex;
 	justify-content: center;
+	padding: auto;
 }
 
 .point {
@@ -239,19 +240,19 @@ div[class*="__sstitre"]:hover + .underline {
 	font-size: 1.7em;
 	text-align: center;
 	width: 20rem;
-	height: 7vh;
+	height: 6.2vh;
 	border-radius: 1rem;
 	margin: auto;
-	margin-bottom: 10vh;
+	margin-bottom: 12vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	overflow: hidden;
 }
 
-#soon span {
-	padding-bottom: 2vh;
-	padding-top: 3vh;
+#soon p {
+	padding-bottom: 4vh;
+	padding-top: 6vh;
 }
 
 /*box - menu1*/
@@ -259,17 +260,25 @@ div[class*="__sstitre"]:hover + .underline {
 	background-color: var(--bg-menu1);
 }
 
+.fa-music {
+	background: linear-gradient(135deg,  #ef475f 20%, #f6916a 80%); 
+	-webkit-background-clip: text;
+    color: transparent;
+    font-size: 3em;
+    margin-top: 1rem;
+}
+
 #menu01 .fa-music {
 	font-size: 4em;
 }
 
-#menu01 p {
+#menu01__p1 {
 	font: 2.5em "Devonshire";
 	color: var(--txt-menu1);
 	margin-top: 0;
 }
 
-#menu01 div {
+#menu01__p2 {
 	font: 3em 'typo_comics_light_demoregular';
 	text-transform: uppercase; 
 	color: var(--txt-menu1);
@@ -280,7 +289,7 @@ div[class*="__sstitre"]:hover + .underline {
 	background-color: var(--bg-menu2);
 }
 
-#menu02 p {
+#menu02__p1 {
 	font: 2em "Croissant One";
 	margin-top: 0;
 	background: linear-gradient(135deg, #C77412 20%, #6E4CCC 80%);
@@ -288,7 +297,7 @@ div[class*="__sstitre"]:hover + .underline {
     color: transparent;
 }
 
-#menu02 div {
+#menu02__p2 {
 	font: 2.5em 'Noto serif';
 	color: var(--txt-1-menu2);
 }
@@ -298,7 +307,7 @@ div[class*="__sstitre"]:hover + .underline {
 	background-color: var(--bg-menu3);
 }
 
-#menu03 p {
+#menu03__p1 {
 	font: 3em "Dancing script";
 	margin-top: 0;
 	background: linear-gradient(135deg, #0228DD 30%, #55B5FB 60%);
@@ -306,7 +315,7 @@ div[class*="__sstitre"]:hover + .underline {
     color: transparent;
 }
 
-#menu03 div {
+#menu03__p2 {
 	font: 3em 'typo_comics_light_demoregular';
 	color: var(--txt-menu3);
 }
@@ -316,7 +325,7 @@ div[class*="__sstitre"]:hover + .underline {
 	background-color: var(--bg-menu4);
 }
 
-#menu04 p {
+#menu04__p1 {
 	font: 2.5em "Kaushan Script";
 	margin-top: 0;
 	background: linear-gradient(135deg, #3D923A 20%, #BFFF7E 80%);
@@ -324,18 +333,19 @@ div[class*="__sstitre"]:hover + .underline {
     color: transparent;
 }
 
-#menu04 div {
+#menu04__p2 {
 	font: 3em 'typo_comics_light_demoregular';
 	color: var(--txt-menu4);
 }
 
 /* ////////////// 5-0 PAGES-commun aux 4 menus /////////////////*/
-h2 {
+#nom_resto {
 	text-align: center;
 	margin-top: 2rem;
+	font-size: 2em;
 }
 
-#titre p {
+#titre {
 margin: 0 2rem 0.5rem 2rem;
 }
 
@@ -375,18 +385,9 @@ table {
 
 /* ////////////// 5-1 PAGES-menu1 /////////////////*/
 
-#titre .fa-music {
-	font-size: 3rem;
-	margin-top: 1rem;
-}
 
-.fa-music {
-	background: linear-gradient(135deg,  #ef475f 20%,#f6916a 80%); 
-	-webkit-background-clip: text;
-    color: transparent;
-}
 
-#music #titre p {
+#music #titre {
 font-size: 2rem;
 }
 
@@ -535,7 +536,8 @@ font-size: 2rem;
 		font-size: 1.8em;
 		height: auto;
 	}
-	#music h2, #chic h2, #papilles h2, #palette h2 {
+
+	#nom_resto {
 			display: none;
 	}
 	.box_menu {
