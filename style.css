@@ -223,6 +223,10 @@ div[class*="__sstitre"]:hover + .underline {
 	padding: 1rem 2.5rem;
 }
 
+#index h2, #index h3 {
+	display: none;
+}
+
 #index .menu {
 	box-shadow: 2px 2px 10px grey;
 	width: 46vh;
